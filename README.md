@@ -1,5 +1,7 @@
 # AtoZ DSA Tracker ⚡
 
+**Live Link**: [https://vickykaushal-diff.github.io/DSA-Navigator/](https://vickykaushal-diff.github.io/DSA-Navigator/)
+
 A beautiful, high-performance, and fully responsive personal progress tracker for mastering Data Structures and Algorithms. The tracker maps out **454 essential DSA coding problems** structured across 18 key topics, letting you easily track your learning path, search, filter, and access coding portals in a premium dark/light mode interface.
 
 ---
