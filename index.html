@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AtoZ DSA - Personal Sheet Tracker</title>
+    <meta name="description" content="Track your progress through the A2Z DSA sheet. A premium responsive dashboard with progress visualization, live search, filtering, and local storage state persistence.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Local styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo-area">
+                <span class="logo-icon">⚡</span>
+                <h1>AtoZ <span class="accent-text">DSA</span></h1>
+            </div>
+            <div class="header-controls">
+                <button id="theme-toggle" class="icon-btn" aria-label="Toggle dark mode">
+                    <!-- Moon Icon (Dark Mode default display) -->
+                    <svg class="sun-icon hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 9H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707m12.728 12.728A9 9 0 115.636 5.636m12.728 12.728L12 12" />
+                    </svg>
+                    <!-- Sun Icon -->
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Dashboard / Statistics -->
+        <section class="dashboard-section card glass">
+            <div class="stats-grid">
+                <div class="stat-item main-stat">
+                    <span class="stat-label">Overall Completion</span>
+                    <div class="stat-value-container">
+                        <span id="solved-count" class="stat-value">0</span>
+                        <span class="stat-separator">/</span>
+                        <span id="total-count" class="stat-value-total">454</span>
+                    </div>
+                </div>
+                <div class="stat-item percent-stat">
+                    <div class="progress-ring-container">
+                        <svg class="progress-ring" width="80" height="80">
+                            <circle class="progress-ring-bg" stroke="var(--bg-card-border)" stroke-width="6" fill="transparent" r="34" cx="40" cy="40"/>
+                            <circle id="progress-ring-circle" class="progress-ring-bar" stroke="var(--accent-color)" stroke-width="6" fill="transparent" r="34" cx="40" cy="40"/>
+                        </svg>
+                        <span id="progress-percent" class="progress-percent-text">0%</span>
+                    </div>
+                </div>
+                <div class="stat-item helper-stat">
+                    <span class="stat-label">Current Goal</span>
+                    <span class="goal-text">Mastering Coding Interview Patterns</span>
+                    <div class="bar-progress-container">
+                        <div id="progress-bar-fill" class="bar-progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search and Filters -->
+        <section class="controls-section">
+            <div class="search-box-wrapper">
+                <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                <input type="text" id="search-input" placeholder="Search problems (e.g. 2Sum, Merge Sort, Linked List)..." aria-label="Search problems">
+                <button id="search-clear-btn" class="clear-btn hidden" aria-label="Clear search">×</button>
+            </div>
+            
+            <div class="filters-group">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="pending">Pending</button>
+                <button class="filter-btn" data-filter="completed">Completed</button>
+            </div>
+        </section>
+
+        <!-- Main Content (DSA Sheet Accordion) -->
+        <main class="sheet-main">
+            <!-- Loading Indicator -->
+            <div id="loading-indicator" class="loading-state">
+                <div class="spinner"></div>
+                <p>Loading DSA Sheet Data...</p>
+            </div>
+
+            <!-- Empty State -->
+            <div id="empty-state" class="empty-state hidden">
+                <span class="empty-icon">🔍</span>
+                <h3>No Problems Found</h3>
+                <p>Try searching for a different keyword or checking your filters.</p>
+            </div>
+
+            <!-- Steps Accordion Container -->
+            <div id="steps-container" class="steps-accordion-list">
+                <!-- Dynamically generated steps will go here -->
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p>&copy; 2026 Kaushal Sharma</p>
+            <p style="margin-top: 0.4rem; font-size: 0.8rem; opacity: 0.8;">Designed and Developed by Kaushal Sharma</p>
+        </footer>
+    </div>
+
+    <!-- App Logic -->
+    <script type="module" src="app.js"></script>
+</body>
+</html>
