@@ -1,4 +1,4 @@
-# AtoZ DSA Tracker ⚡
+# AtoZ DSA Navigator ⚡
 
 **Live Link**: [https://vickykaushal-diff.github.io/DSA-Navigator/](https://vickykaushal-diff.github.io/DSA-Navigator/)
 
